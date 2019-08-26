@@ -1,33 +1,106 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.4;
+  position: relative;
+}
+
 .App {
+  /* min-height: 100vh; */
+}
+
+a {
+  color: rgba(189, 18, 189, 0.993);
+  text-decoration: none;
+}
+
+.header {
+  background: #000;
+  color: #fff;
   text-align: center;
+  padding: 10px;
+  border-top-left-radius: 27px;
+  border-top-right-radius: 27px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.btn-delete {
+  background: #c82333;
+  color: #fff;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+  width: 96%;
+  max-width: 600px;
+  /* min-height: 100vh; */
+  margin: 0 auto;
+  border: 2px solid #000;
+  margin-top: 10px;
+  border-radius: 30px;
+  min-height: 300px;
+  background-color: #f4f4f4;
 }
 
-.App-link {
-  color: #61dafb;
+.todoItem {
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todoItem:last-child {
+  border-bottom-left-radius: 27px;
+  border-bottom-right-radius: 27px;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: #555;
+  color: #fff;
+  padding: 7px 20px;
+  cursor: pointer;
+  background-color: #2dcc70;
+  font-size: 30px;
+}
+
+.btn:hover {
+  background: #666;
+}
+
+/* Customize the label (the container) */
+.todo {
+  display: block;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  height: auto;
+  min-height: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.todo input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
