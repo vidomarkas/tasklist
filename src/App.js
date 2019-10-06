@@ -8,7 +8,7 @@ import About from "./Components/pages/About";
 
 import uuid from "uuid";
 
-import "./App.css";
+import "./css/main.css";
 
 class App extends Component {
   state = {
@@ -27,11 +27,14 @@ class App extends Component {
   };
 
   deleteTodo = id => {
-    console.log(this.state);
-    this.setState({
-      todos: [...this.state.todos.filter(todo => todo.id !== id)]
-    });
-    console.log(this.state);
+    this.setState(
+      {
+        todos: [...this.state.todos.filter(todo => todo.id !== id)]
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
   };
 
   addtodo = title => {
@@ -82,14 +85,15 @@ class App extends Component {
               path="/"
               render={props => (
                 <React.Fragment>
-                  <AddTodo addtodo={this.addtodo} />
-
-                  <Todos
-                    className="todoItem"
-                    todos={this.state.todos}
-                    markComplete={this.markComplete}
-                    deleteTodo={this.deleteTodo}
-                  />
+                  <div className="todos__container">
+                    <AddTodo addtodo={this.addtodo} />
+                    <Todos
+                      className="todo__item"
+                      todos={this.state.todos}
+                      markComplete={this.markComplete}
+                      deleteTodo={this.deleteTodo}
+                    />
+                  </div>
                 </React.Fragment>
               )}
             />

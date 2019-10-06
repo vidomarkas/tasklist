@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 export class AddTodo extends Component {
   state = {
-    title: ""
+    title: "",
+    showForm: false
   };
 
   onChange = e => {
@@ -16,19 +17,40 @@ export class AddTodo extends Component {
     }
     this.setState({ title: "" });
   };
+
+  showForm = () => {
+    this.setState({ showForm: true }, () => {
+      console.log(this.state.showForm);
+    });
+    console.log("click");
+  };
   render() {
     return (
-      <form onSubmit={this.onSubmit} style={{ display: "flex" }} action="">
-        <input
-          type="text"
-          name="title"
-          placeholder="Add todo ..."
-          style={{ flex: "10", padding: "5px" }}
-          value={this.state.title}
-          onChange={this.onChange}
-        />
-        <input type="submit" value="+" className="btn" style={{ flex: "1" }} />
-      </form>
+      <div className="addTodo" onClick={this.showForm}>
+        +
+        <form
+          className="addTodo__form"
+          onSubmit={this.onSubmit}
+          action=""
+          style={
+            this.state.showForm ? { display: "block" } : { display: "none" }
+          }
+        >
+          <input
+            type="text"
+            name="title"
+            placeholder="Add todo ..."
+            value={this.state.title}
+            onChange={this.onChange}
+          />
+          <input
+            type="submit"
+            value="+"
+            className="btn"
+            style={{ flex: "1" }}
+          />
+        </form>
+      </div>
     );
   }
 }

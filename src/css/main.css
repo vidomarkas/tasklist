@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.4;
+  position: relative; }
+
+.container {
+  margin: 0 auto;
+  border: 2px solid #000; }
+
+a {
+  color: rgba(189, 18, 189, 0.993);
+  text-decoration: none; }
+
+.addTodo {
+  background-color: #5178f1;
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
+  margin: 20px; }
+  .addTodo__form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 500;
+    background-color: #fff;
+    height: 300px;
+    width: 400px; }
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: #555;
+  color: #fff;
+  cursor: pointer;
+  background-color: #2dcc70;
+  font-size: 30px; }
+
+.btn:hover {
+  background: #666; }
+
+.btn-delete {
+  background: #c82333;
+  border-radius: 4px;
+  position: absolute;
+  right: 5px;
+  top: 5px; }
+
+.todos__container {
+  background-color: #242132;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 15px; }
+
+.todo__item {
+  display: block;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 12px;
+  padding: 10px;
+  font-size: 22px;
+  height: auto;
+  min-height: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 200px;
+  height: 200px;
+  background-color: #37324d;
+  border-radius: 5px;
+  margin: 20px; }
+
+.todo__item-title {
+  color: #fff;
+  cursor: pointer; }
+
+/* Hide the browser's default checkbox */
+.todo__item__checkbox {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0; }
+
+.header {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 10px; }

@@ -1,0 +1,38 @@
+.todo__item {
+  display: block;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 12px;
+
+  padding: 10px;
+
+  font-size: 22px;
+  height: auto;
+  min-height: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  width: 200px;
+  height: 200px;
+  background-color: #37324d;
+
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.todo__item-title {
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Hide the browser's default checkbox */
+.todo__item__checkbox {
+  position: absolute;
+  opacity: 0;
+
+  height: 0;
+  width: 0;
+}

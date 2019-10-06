@@ -1,0 +1,26 @@
+.btn {
+  display: inline-block;
+  border: none;
+  background: #555;
+  color: #fff;
+  //padding: 7px 20px;
+  cursor: pointer;
+  background-color: #2dcc70;
+  font-size: 30px;
+}
+
+.btn:hover {
+  background: #666;
+}
+
+.btn-delete {
+  background: #c82333;
+  
+ 
+  //padding: 5px 8px;
+  border-radius: 4px;
+ 
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
