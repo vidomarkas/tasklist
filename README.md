@@ -1,5 +1,5 @@
 # React Todo Application with local storage
-##### [Try it out yourself](https://gifted-murdock-ff03dc.netlify.com/)
+##### [Try it out yourself](https://todoapp-vidomarkas.netlify.com/)
 
 
 
