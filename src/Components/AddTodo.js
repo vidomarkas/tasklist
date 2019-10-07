@@ -1,33 +1,68 @@
 import React, { Component } from "react";
+import Calendar from "./Calendar";
 
 export class AddTodo extends Component {
   state = {
     title: "",
-    showForm: false
+    body: "",
+    showForm: false,
+    timeCreated: null,
+    deadline: null
   };
 
-  onChange = e => {
+  onChangeTitle = e => {
     this.setState({ title: e.target.value });
+  };
+  onChangeBody = e => {
+    this.setState({ body: e.target.value });
   };
 
   onSubmit = e => {
     e.preventDefault();
-    if (this.state.title) {
-      this.props.addtodo(this.state.title);
+    if (this.state.title && this.state.body) {
+      this.props.addtodo(
+        this.state.title,
+        this.state.body,
+        this.state.timeCreated,
+        this.state.deadline
+      );
+      this.hideForm();
     }
-    this.setState({ title: "" });
+    this.setState({ title: "", body: "" });
   };
 
   showForm = () => {
-    this.setState({ showForm: true }, () => {
-      console.log(this.state.showForm);
-    });
-    console.log("click");
+    this.setState({ showForm: true });
   };
+
+  hideForm = () => {
+    this.setState({ showForm: false }, () => {});
+  };
+
+  selectedDeadline = deadline => {
+    this.setState({ deadline }, console.log(this.state.deadline));
+  };
+
+  createDate = () => {
+    const today = new Date();
+    const date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
+
+    const time =
+      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    this.setState({ timeCreated: date + " " + time });
+  };
+
   render() {
     return (
-      <div className="addTodo" onClick={this.showForm}>
-        +
+      <>
+        <div className="addTodo" onClick={this.showForm}>
+          +
+        </div>
         <form
           className="addTodo__form"
           onSubmit={this.onSubmit}
@@ -39,18 +74,37 @@ export class AddTodo extends Component {
           <input
             type="text"
             name="title"
-            placeholder="Add todo ..."
+            placeholder="Title"
             value={this.state.title}
-            onChange={this.onChange}
+            onChange={this.onChangeTitle}
+            maxLength="30"
           />
           <input
+            type="text"
+            name="body"
+            placeholder="Add todo ..."
+            value={this.state.body}
+            onChange={this.onChangeBody}
+          />
+
+          <div className="deadline">
+            Deadline:
+            <Calendar deadline={this.selectedDeadline} />
+          </div>
+          <input
             type="submit"
-            value="+"
+            value="Add"
             className="btn"
             style={{ flex: "1" }}
+            onClick={() => {
+              this.createDate();
+            }}
           />
+          <button className="btn btn-cancel" onClick={this.hideForm}>
+            Cancel
+          </button>
         </form>
-      </div>
+      </>
     );
   }
 }

@@ -7,20 +7,25 @@
   cursor: pointer;
   background-color: #2dcc70;
   font-size: 30px;
-}
+  &:hover {
+    background: #666;
+  }
 
-.btn:hover {
-  background: #666;
-}
+  &-delete {
+    background: #c82333;
 
-.btn-delete {
-  background: #c82333;
-  
- 
-  //padding: 5px 8px;
-  border-radius: 4px;
- 
-  position: absolute;
-  right: 5px;
-  top: 5px;
+    //padding: 5px 8px;
+    border-radius: 4px;
+
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+
+  &-cancel {
+    background: #c82333;
+  }
+  &-complete {
+    background: #2dcc70;
+  }
 }

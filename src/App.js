@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Todos from "./Components/Todos";
-import Header from "./Components/layout/Header";
-import AddTodo from "./Components/AddTodo";
-import About from "./Components/pages/About";
+import Todos from "./components/Todos";
+import Header from "./components/layout/Header";
+import AddTodo from "./components/AddTodo";
+import About from "./components/pages/About";
 
 import uuid from "uuid";
 
@@ -32,16 +32,26 @@ class App extends Component {
         todos: [...this.state.todos.filter(todo => todo.id !== id)]
       },
       () => {
-        console.log(this.state);
+        console.log("deleted", this.state);
       }
     );
   };
 
-  addtodo = title => {
+  handleExpiredTodo = () => {
+    this.setState({ expired: true }, () => {
+      console.log("expired", this.state);
+    });
+  };
+
+  addtodo = (title, body, timeCreated, deadline) => {
     const newTodo = {
       id: uuid.v4(),
       title,
-      completed: false
+      body,
+      timeCreated,
+      completed: false,
+      deadline,
+      expired: false
     };
 
     this.setState({
@@ -86,14 +96,15 @@ class App extends Component {
               render={props => (
                 <React.Fragment>
                   <div className="todos__container">
-                    <AddTodo addtodo={this.addtodo} />
                     <Todos
                       className="todo__item"
                       todos={this.state.todos}
                       markComplete={this.markComplete}
                       deleteTodo={this.deleteTodo}
+                      handleExpiredTodo={this.handleExpiredTodo}
                     />
                   </div>
+                  <AddTodo addtodo={this.addtodo} />
                 </React.Fragment>
               )}
             />

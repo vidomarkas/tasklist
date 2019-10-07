@@ -1,18 +1,27 @@
 .addTodo {
   background-color: #5178f1;
-  height: 200px;
-  width: 200px;
-  border-radius: 5px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
   margin: 20px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+  cursor: pointer;
   &__form {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 500;
+    z-index: 5000;
     background-color: #fff;
     height: 300px;
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
   }
 }
