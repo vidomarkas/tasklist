@@ -1,6 +1,6 @@
 import React from "react";
 import DatePicker from "react-datepicker";
-import "./node_modules/react-datepicker/dist/react-datepicker.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 class Calendar extends React.Component {
   state = {
