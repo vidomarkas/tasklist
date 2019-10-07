@@ -1,5 +1,5 @@
-import React from "./node_modules/react";
-import DatePicker from "./node_modules/react-datepicker";
+import React from "react";
+import DatePicker from "react-datepicker";
 import "./node_modules/react-datepicker/dist/react-datepicker.css";
 
 class Calendar extends React.Component {

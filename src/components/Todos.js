@@ -1,6 +1,6 @@
-import React, { Component } from "./node_modules/react";
+import React, { Component } from "react";
 import TodoItem from "./TodoItem";
-import PropTypes from "./node_modules/prop-types";
+import PropTypes from "prop-types";
 
 export class Todos extends Component {
   render() {
