@@ -1,4 +1,4 @@
-.todo__item {
+.todoItem {
   display: block;
   position: relative;
   padding-left: 10px;
@@ -16,22 +16,47 @@
   user-select: none;
 
   width: 200px;
-  height: 200px;
+  height: auto;
+  max-height: 400px;
   background-color: #37324d;
 
   border-radius: 5px;
   margin: 20px;
-}
 
-.todo__item-title {
-  color: #fff;
-}
+  &:hover {
+    transform: scale(1.01);
+  }
+  &__dateCreated {
+    color: rgb(233, 233, 233);
+    font-size: 0.6rem;
+  }
 
-/* Hide the browser's default checkbox */
-.todo__item__checkbox {
-  position: absolute;
-  opacity: 0;
+  &__title {
+    color: #fff;
+    font-size: 1.2rem;
+  }
 
-  height: 0;
-  width: 0;
+  &__body {
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    border-radius: 5px;
+    min-height: 150px;
+    font-size: 0.9rem;
+    color: #fff;
+  }
+
+  &__deadline {
+    border: 1px solid red;
+    background-color: #ccc;
+  }
+
+  &__timeLeft {
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(131, 121, 121);
+  }
+
+  &__controls {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
 }

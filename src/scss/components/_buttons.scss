@@ -1,31 +1,50 @@
 .btn {
   display: inline-block;
   border: none;
-  background: #555;
+  outline: none;
   color: #fff;
   //padding: 7px 20px;
   cursor: pointer;
-  background-color: #2dcc70;
+
   font-size: 30px;
+  margin: 5px;
   &:hover {
-    background: #666;
+    background: rgb(0, 0, 0);
   }
 
   &-delete {
-    background: #c82333;
+    background: none;
+    border-radius: 4px;
+    padding: 3px;
 
-    //padding: 5px 8px;
+    color: rgba(95, 95, 95, 0.356);
+    &:hover {
+      background: rgba(36, 36, 36, 0.192);
+      color: #fff;
+    }
+  }
+  &-complete {
+    background: none;
+    padding: 3px;
     border-radius: 4px;
 
-    position: absolute;
-    right: 5px;
-    top: 5px;
+    &__svg {
+      height: 22px;
+      width: 15px;
+      fill: rgba(95, 95, 95, 0.356);
+    }
+    &:hover {
+      background: rgba(36, 36, 36, 0.192);
+      color: #fff;
+      .btn-complete__svg {
+        fill: #fff;
+      }
+    }
   }
 
   &-cancel {
     background: #c82333;
   }
-  &-complete {
-    background: #2dcc70;
+  &-add {
   }
 }

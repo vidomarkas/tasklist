@@ -37,13 +37,7 @@ class App extends Component {
     );
   };
 
-  handleExpiredTodo = () => {
-    this.setState({ expired: true }, () => {
-      console.log("expired", this.state);
-    });
-  };
-
-  addtodo = (title, body, timeCreated, deadline) => {
+  addtodo = (title, body, timeCreated, deadline, expired, timeLeft) => {
     const newTodo = {
       id: uuid.v4(),
       title,
@@ -51,8 +45,10 @@ class App extends Component {
       timeCreated,
       completed: false,
       deadline,
-      expired: false
+      expired,
+      timeLeft
     };
+    console.log("newTodo: ", newTodo);
 
     this.setState({
       todos: [...this.state.todos, newTodo]
@@ -101,7 +97,6 @@ class App extends Component {
                       todos={this.state.todos}
                       markComplete={this.markComplete}
                       deleteTodo={this.deleteTodo}
-                      handleExpiredTodo={this.handleExpiredTodo}
                     />
                   </div>
                   <AddTodo addtodo={this.addtodo} />

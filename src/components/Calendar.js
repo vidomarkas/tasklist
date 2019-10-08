@@ -48,7 +48,7 @@ class Calendar extends React.Component {
       <DatePicker
         selected={this.state.selectedDeadline}
         onChange={this.handleChange}
-        minDate={new Date()}
+        // minDate={new Date()}
         showTimeSelect
         timeFormat="p"
         timeIntervals={15}

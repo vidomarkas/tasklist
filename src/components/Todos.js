@@ -10,7 +10,6 @@ export class Todos extends Component {
         key={todo.id}
         markComplete={this.props.markComplete}
         deleteTodo={this.props.deleteTodo}
-        handleExpiredTodo={this.props.handleExpiredTodo}
       />
     ));
   }
