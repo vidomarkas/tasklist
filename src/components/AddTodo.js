@@ -7,8 +7,7 @@ export class AddTodo extends Component {
     body: "",
     showForm: false,
     timeCreated: null,
-    deadline: null,
-    timeLeft: null
+    deadline: null
   };
 
   onChangeTitle = e => {
@@ -25,9 +24,7 @@ export class AddTodo extends Component {
         this.state.title,
         this.state.body,
         this.state.timeCreated,
-        this.state.deadline,
-        this.state.expired,
-        this.state.timeLeft
+        this.state.deadline
       );
       this.hideForm();
     }

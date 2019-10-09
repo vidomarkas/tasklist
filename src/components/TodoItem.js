@@ -62,9 +62,43 @@ export class TodoItem extends Component {
       differenceMsec -= mm * 1000;
 
       if (days < 1) {
-        this.setState({ timeLeft: hh + ":" + mm + ":" + ss });
+        this.setState({
+          timeLeft:
+            hh.toLocaleString("en-US", {
+              minimumIntegerDigits: 2,
+              useGrouping: false
+            }) +
+            ":" +
+            mm.toLocaleString("en-US", {
+              minimumIntegerDigits: 2,
+              useGrouping: false
+            }) +
+            ":" +
+            ss.toLocaleString("en-US", {
+              minimumIntegerDigits: 2,
+              useGrouping: false
+            })
+        });
       } else {
-        this.setState({ timeLeft: days + "days " + hh + ":" + mm + ":" + ss });
+        this.setState({
+          timeLeft:
+            days +
+            "days " +
+            hh.toLocaleString("en-US", {
+              minimumIntegerDigits: 2,
+              useGrouping: false
+            }) +
+            ":" +
+            mm.toLocaleString("en-US", {
+              minimumIntegerDigits: 2,
+              useGrouping: false
+            }) +
+            ":" +
+            ss.toLocaleString("en-US", {
+              minimumIntegerDigits: 2,
+              useGrouping: false
+            })
+        });
       }
     }
   };
