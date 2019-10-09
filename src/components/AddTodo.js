@@ -8,7 +8,6 @@ export class AddTodo extends Component {
     showForm: false,
     timeCreated: null,
     deadline: null,
-    expired: false,
     timeLeft: null
   };
 
@@ -40,49 +39,28 @@ export class AddTodo extends Component {
     const selectedDate = new Date(deadline);
     const date =
       selectedDate.getFullYear() +
-      "-" +
+      "/" +
       (selectedDate.getMonth() + 1) +
-      "-" +
+      "/" +
       selectedDate.getDate();
 
-    const time = selectedDate.getHours() + ":" + selectedDate.getMinutes();
+    const time =
+      selectedDate.getHours().toLocaleString("en-US", {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      }) +
+      ":" +
+      selectedDate.getMinutes().toLocaleString("en-US", {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      }) +
+      ":" +
+      selectedDate.getSeconds().toLocaleString("en-US", {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      });
 
     return date + " " + time;
-  };
-
-  //calculate how much time till the deadline
-  calcTimeLeft = deadline => {
-    console.log("working", deadline);
-    // Current date in miliseconds
-    const now = Date.now();
-    // COnvert deadline to miliseconds
-    const date = new Date(this.formatDateFromISO(deadline));
-    const deadlineMiliseconds = date.getTime();
-
-    // Find difference
-
-    let differenceMsec = deadlineMiliseconds - now;
-    if (differenceMsec < 0) {
-      console.log("expired");
-      this.setState({ expired: true, timeLeft: -1 });
-      return "Expired";
-    } else {
-      // Calculate how much time is left
-      const days = Math.floor(differenceMsec / 1000 / 60 / 60 / 24);
-      differenceMsec -= days * 1000 * 60 * 60 * 24;
-      const hh = Math.floor(differenceMsec / 1000 / 60 / 60);
-      differenceMsec -= hh * 1000 * 60 * 60;
-      const mm = Math.floor(differenceMsec / 1000 / 60);
-      differenceMsec -= mm * 1000 * 60;
-
-      if (days < 1) {
-        console.log("Time left: " + hh + ":" + mm);
-        this.setState({ timeLeft: hh + ":" + mm });
-      } else {
-        console.log("Time left: " + days + "days " + hh + ":" + mm);
-        this.setState({ timeLeft: days + "days " + hh + ":" + mm });
-      }
-    }
   };
 
   showForm = () => {
@@ -95,22 +73,34 @@ export class AddTodo extends Component {
 
   selectedDeadline = deadline => {
     const formatedDeadline = this.formatDateFromISO(deadline);
-    this.setState({ deadline: formatedDeadline }, () => {
-      this.calcTimeLeft(deadline);
-    });
+    this.setState({ deadline: formatedDeadline });
   };
 
   createDate = () => {
     const today = new Date();
     const date =
       today.getFullYear() +
-      "-" +
+      "/" +
       (today.getMonth() + 1) +
-      "-" +
+      "/" +
       today.getDate();
 
     const time =
-      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      today.getHours().toLocaleString("en-US", {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      }) +
+      ":" +
+      today.getMinutes().toLocaleString("en-US", {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      });
+    // +
+    // ":" +
+    // today.getSeconds().toLocaleString("en-US", {
+    //   minimumIntegerDigits: 2,
+    //   useGrouping: false
+    // });
     this.setState({ timeCreated: date + " " + time });
   };
 

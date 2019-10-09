@@ -27,14 +27,9 @@ class App extends Component {
   };
 
   deleteTodo = id => {
-    this.setState(
-      {
-        todos: [...this.state.todos.filter(todo => todo.id !== id)]
-      },
-      () => {
-        console.log("deleted", this.state);
-      }
-    );
+    this.setState({
+      todos: [...this.state.todos.filter(todo => todo.id !== id)]
+    });
   };
 
   addtodo = (title, body, timeCreated, deadline, expired, timeLeft) => {

@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 
 import PropTypes from "prop-types";
+import TimeLeft from "./TimeLeft";
 
 export class TodoItem extends Component {
+  state = { timeLeft: null, expired: null };
+
   getStyle = () => {
-    if (this.props.todo.expired && !this.props.todo.completed) {
+    console.log("style should change");
+    if (this.state.expired && !this.props.todo.completed) {
       return { backgroundColor: "#f0134d" };
     } else if (this.props.todo.completed) {
       return { backgroundColor: "#2ECC71" };
@@ -13,17 +17,86 @@ export class TodoItem extends Component {
     }
   };
 
+  //calculate how much time till the deadline
+  calcTimeLeft = deadline => {
+    const formatDateFromISO = deadline => {
+      const selectedDate = new Date(deadline);
+      const date =
+        selectedDate.getFullYear() +
+        "/" +
+        (selectedDate.getMonth() + 1) +
+        "/" +
+        selectedDate.getDate();
+
+      const time =
+        selectedDate.getHours() +
+        ":" +
+        selectedDate.getMinutes() +
+        ":" +
+        selectedDate.getSeconds();
+
+      return date + " " + time;
+    };
+
+    // Current date in miliseconds
+    const now = Date.now();
+    // COnvert deadline to miliseconds
+    const date = new Date(formatDateFromISO(deadline));
+    const deadlineMiliseconds = date.getTime();
+
+    // Find difference
+
+    let differenceMsec = deadlineMiliseconds - now;
+    if (differenceMsec < 0) {
+      this.setState({ expired: true, timeLeft: -1 });
+      return "Expired";
+    } else {
+      // Calculate how much time is left
+      const days = Math.floor(differenceMsec / 1000 / 60 / 60 / 24);
+      differenceMsec -= days * 1000 * 60 * 60 * 24;
+      const hh = Math.floor(differenceMsec / 1000 / 60 / 60);
+      differenceMsec -= hh * 1000 * 60 * 60;
+      const mm = Math.floor(differenceMsec / 1000 / 60);
+      differenceMsec -= mm * 1000 * 60;
+      const ss = Math.floor(differenceMsec / 1000);
+      differenceMsec -= mm * 1000;
+
+      if (days < 1) {
+        this.setState({ timeLeft: hh + ":" + mm + ":" + ss });
+      } else {
+        this.setState({ timeLeft: days + "days " + hh + ":" + mm + ":" + ss });
+      }
+    }
+  };
+
+  checkIfExpired = () => {
+    if (this.state.timeLeft < 0) {
+      this.setState({ expired: true }, () => {
+        this.getStyle();
+        console.log(
+          this.state.expired,
+          this.state.timeLeft,
+          this.props.todo.completed
+        );
+        clearInterval(this.myInterval);
+      });
+    }
+  };
+
+  componentDidMount() {
+    this.myInterval = setInterval(() => {
+      this.calcTimeLeft(this.props.todo.deadline);
+      this.checkIfExpired();
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.myInterval);
+  }
+
   render() {
-    const {
-      id,
-      title,
-      body,
-      timeCreated,
-      deadline,
-      expired,
-      timeLeft
-    } = this.props.todo;
-    console.log(timeLeft);
+    const { id, title, body, timeCreated, deadline } = this.props.todo;
+
     return (
       <div className="todoItem" style={this.getStyle()}>
         <p className="todoItem__dateCreated">{timeCreated}</p>
@@ -33,11 +106,9 @@ export class TodoItem extends Component {
         {/* <p>{this.props.convertDateFromISO(deadline)}</p> */}
         <p className="todoItem__deadline">deadline {deadline}</p>
 
-        <p className="todoItem__timeLeft">
-          {timeLeft < 0 ? "expired" : timeLeft}
-        </p>
+        <TimeLeft timeLeft={this.state.timeLeft} />
         <div className="todoItem__controls">
-          <button
+          <div
             className="btn btn-complete"
             onClick={this.props.markComplete.bind(this, id)}
           >
@@ -49,8 +120,8 @@ export class TodoItem extends Component {
               xmlnsXlink="http://www.w3.org/1999/xlink"
               x="0px"
               y="0px"
-              width="442.533px"
-              height="442.533px"
+              width="15px"
+              height="15px"
               viewBox="0 0 442.533 442.533"
               style={{ enableBackgroundNew: "0 0 442.533 442.533" }}
               xmlSpace="preserve"
@@ -65,13 +136,13 @@ export class TodoItem extends Component {
                 />
               </g>
             </svg>
-          </button>
-          <button
+          </div>
+          <div
             className="btn btn-delete"
             onClick={this.props.deleteTodo.bind(this, id)}
           >
             &times;
-          </button>
+          </div>
         </div>
       </div>
     );
