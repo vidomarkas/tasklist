@@ -133,6 +133,7 @@ export class AddTodo extends Component {
 
           <div className="deadline">
             Deadline:
+            <br />
             <Calendar deadline={this.selectedDeadline} />
           </div>
           <input

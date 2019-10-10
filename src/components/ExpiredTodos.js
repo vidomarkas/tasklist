@@ -3,8 +3,7 @@ import React from "react";
 export default function About() {
   return (
     <div style={{ textAlign: "center" }}>
-      <h1>About</h1>
-      <p>To do List app</p>
+      <h1>Expired todos</h1>
 
       <a
         style={{ fontSize: "10px" }}

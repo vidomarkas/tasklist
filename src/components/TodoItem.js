@@ -7,7 +7,6 @@ export class TodoItem extends Component {
   state = { timeLeft: null, expired: null };
 
   getStyle = () => {
-    console.log("style should change");
     if (this.state.expired && !this.props.todo.completed) {
       return { backgroundColor: "#f0134d" };
     } else if (this.props.todo.completed) {

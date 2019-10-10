@@ -348,6 +348,12 @@ a {
   height: 300px;
   width: 90%;
   max-width: 400px; }
+  @media (max-width: 400px) {
+    .addTodo__dialog {
+      width: 100%;
+      top: 0%;
+      left: 0;
+      transform: translate(0, 0); } }
 
 .btn {
   display: inline-block;
@@ -444,3 +450,14 @@ a {
   color: #fff;
   text-align: center;
   padding: 10px; }
+
+.todosCategories {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center; }
+  .todosCategories__link {
+    border: 1px solid black;
+    width: 33.333%;
+    background-color: #37324d; }
+    .todosCategories__link:hover {
+      background-color: #2d293f; }
