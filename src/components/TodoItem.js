@@ -116,7 +116,6 @@ export class TodoItem extends Component {
     this.myInterval = setInterval(() => {
       this.calcTimeLeft(this.props.todo.deadline);
       this.checkIfExpired();
-      this.props.getTimeLeft(this.props.todo.id, this.state.timeLeft);
     }, 1000);
   }
 

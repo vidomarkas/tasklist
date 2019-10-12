@@ -32,14 +32,15 @@ class App extends Component {
     });
   };
 
-  addtodo = (title, body, timeCreated, deadline) => {
+  addtodo = (title, body, timeCreated, deadline, unformattedDeadline) => {
     const newTodo = {
       id: uuid.v4(),
       title,
       body,
       timeCreated,
       completed: false,
-      deadline
+      deadline,
+      unformattedDeadline
     };
 
     this.setState({

@@ -4,21 +4,39 @@ import TodoItem from "./TodoItem";
 import PropTypes from "prop-types";
 
 export class Todos extends Component {
-  getTimeLeft = (id, timeLeft) => {
-    console.log(id, timeLeft);
-  };
   render() {
+    const d = new Date();
+    const currentTimeMiliseconds = d.getTime() / 1000;
     return this.props.todos.map(todo => {
-      console.log(todo.timeLeft);
-      return (
-        <TodoItem
-          todo={todo}
-          key={todo.id}
-          markComplete={this.props.markComplete}
-          deleteTodo={this.props.deleteTodo}
-          getTimeLeft={this.getTimeLeft}
-        />
-      );
+      const date = new Date(todo.unformattedDeadline);
+      const deadlineMiliseconds = date.getTime() / 1000;
+
+      console.log((deadlineMiliseconds - currentTimeMiliseconds) / 86400);
+      if ((deadlineMiliseconds - currentTimeMiliseconds) / 86400 > 0) {
+        return (
+          <div>
+            <h2>Active todos</h2>
+            <TodoItem
+              todo={todo}
+              key={todo.id}
+              markComplete={this.props.markComplete}
+              deleteTodo={this.props.deleteTodo}
+            />
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <h2>Expired todos</h2>
+            <TodoItem
+              todo={todo}
+              key={todo.id}
+              markComplete={this.props.markComplete}
+              deleteTodo={this.props.deleteTodo}
+            />
+          </div>
+        );
+      }
     });
   }
 }

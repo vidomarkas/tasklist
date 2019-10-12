@@ -7,6 +7,7 @@ export class AddTodo extends Component {
     body: "",
     timeCreated: null,
     deadline: null,
+    unformattedDeadline: null,
     showForm: false
   };
 
@@ -24,7 +25,8 @@ export class AddTodo extends Component {
         this.state.title,
         this.state.body,
         this.state.timeCreated,
-        this.state.deadline
+        this.state.deadline,
+        this.state.unformattedDeadline
       );
       this.hideForm();
     }
@@ -69,8 +71,9 @@ export class AddTodo extends Component {
   };
 
   selectedDeadline = deadline => {
-    const formatedDeadline = this.formatDateFromISO(deadline);
-    this.setState({ deadline: formatedDeadline });
+    this.setState({ unformattedDeadline: deadline });
+    const formattedDeadline = this.formatDateFromISO(deadline);
+    this.setState({ deadline: formattedDeadline });
   };
 
   createDate = () => {
