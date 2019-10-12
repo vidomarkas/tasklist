@@ -2,9 +2,10 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 import TimeLeft from "./TimeLeft";
+import Status from "./Status";
 
 export class TodoItem extends Component {
-  state = { timeLeft: null, expired: null };
+  state = { timeLeft: null, expired: false, expanded: false };
 
   getStyle = () => {
     if (this.state.expired && !this.props.todo.completed) {
@@ -16,7 +17,7 @@ export class TodoItem extends Component {
     }
   };
 
-  //calculate how much time till the deadline
+  // Calculate how much time left until the deadline
   calcTimeLeft = deadline => {
     const formatDateFromISO = deadline => {
       const selectedDate = new Date(deadline);
@@ -101,16 +102,11 @@ export class TodoItem extends Component {
       }
     }
   };
-
+  // Check if todo is expired and stop calculating time
   checkIfExpired = () => {
     if (this.state.timeLeft < 0) {
       this.setState({ expired: true }, () => {
         this.getStyle();
-        console.log(
-          this.state.expired,
-          this.state.timeLeft,
-          this.props.todo.completed
-        );
         clearInterval(this.myInterval);
       });
     }
@@ -120,6 +116,7 @@ export class TodoItem extends Component {
     this.myInterval = setInterval(() => {
       this.calcTimeLeft(this.props.todo.deadline);
       this.checkIfExpired();
+      this.props.getTimeLeft(this.props.todo.id, this.state.timeLeft);
     }, 1000);
   }
 
@@ -132,15 +129,7 @@ export class TodoItem extends Component {
 
     return (
       <div className="todoItem" style={this.getStyle()}>
-        <p className="todoItem__dateCreated">{timeCreated}</p>
-        <p className="todoItem__title">{title}</p>
-
-        <p className="todoItem__body">{body}</p>
-        {/* <p>{this.props.convertDateFromISO(deadline)}</p> */}
-        <p className="todoItem__deadline">deadline {deadline}</p>
-
-        <TimeLeft timeLeft={this.state.timeLeft} />
-        <div className="todoItem__controls">
+        <div className="todoItem__heading">
           <div
             className="btn btn-complete"
             onClick={this.props.markComplete.bind(this, id)}
@@ -170,11 +159,40 @@ export class TodoItem extends Component {
               </g>
             </svg>
           </div>
+          <p
+            className="todoItem__title"
+            onClick={() => {
+              this.setState({ expanded: !this.state.expanded });
+            }}
+          >
+            {title}
+          </p>
+          <Status
+            status={{
+              expired: this.state.expired,
+              completed: this.props.todo.completed
+            }}
+          />
+        </div>
+        <div
+          className={
+            this.state.expanded
+              ? "todoItem__details--show todoItem__details"
+              : "todoItem__details"
+          }
+        >
+          <p className="todoItem__dateCreated">{timeCreated}</p>
+
+          <TimeLeft timeLeft={this.state.timeLeft} />
+          <p className="todoItem__body">{body}</p>
+          {/* <p>{this.props.convertDateFromISO(deadline)}</p> */}
+          <p className="todoItem__deadline">deadline {deadline}</p>
+
           <div
             className="btn btn-delete"
             onClick={this.props.deleteTodo.bind(this, id)}
           >
-            &times;
+            Delete
           </div>
         </div>
       </div>

@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Todos from "./components/Todos";
 import Header from "./components/layout/Header";
 import AddTodo from "./components/AddTodo";
-import CompletedTodos from "./components/CompletedTodos";
-import ExpiredTodos from "./components/ExpiredTodos";
-import TodosCategories from "./components/TodosCategories";
 
 import uuid from "uuid";
 
@@ -22,6 +19,7 @@ class App extends Component {
       todos: this.state.todos.map(todo => {
         if (todo.id === id) {
           todo.completed = !todo.completed;
+          console.log(this.state);
         }
         return todo;
       })
@@ -43,7 +41,6 @@ class App extends Component {
       completed: false,
       deadline
     };
-    console.log("newTodo: ", newTodo);
 
     this.setState({
       todos: [...this.state.todos, newTodo]
@@ -67,7 +64,7 @@ class App extends Component {
     if (!todosFromLocalStorage) {
       this.setState({ todos: [] });
     } else {
-      this.setState({ todos: [...todosFromLocalStorage] });
+      this.setState({ todos: [...todosFromLocalStorage] }, () => {});
     }
   }
 
@@ -81,57 +78,24 @@ class App extends Component {
         <div className="App">
           <div className="container">
             <Header />
-            <TodosCategories />
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={props => (
-                  <React.Fragment>
-                    <div className="todos__container">
-                      <Todos
-                        className="todo__item"
-                        todos={this.state.todos}
-                        markComplete={this.markComplete}
-                        deleteTodo={this.deleteTodo}
-                      />
-                    </div>
-                    <AddTodo addtodo={this.addtodo} />
-                  </React.Fragment>
-                )}
-              />
-              <Route
-                path="/expiredTodos"
-                component={ExpiredTodos}
-                render={() => (
-                  <>
-                    <div className="todos__container">
-                      <Todos
-                        className="todo__item"
-                        todos={this.state.todos}
-                        markComplete={this.markComplete}
-                        deleteTodo={this.deleteTodo}
-                      />
-                    </div>
-                  </>
-                )}
-              ></Route>
-              <Route
-                path="/completedTodos"
-                render={() => (
-                  <>
-                    <div className="todos__container">
-                      <CompletedTodos
-                        className="todo__item"
-                        todos={this.state.todos}
-                        markComplete={this.markComplete}
-                        deleteTodo={this.deleteTodo}
-                      />
-                    </div>
-                  </>
-                )}
-              ></Route>
-            </Switch>
+
+            <Route
+              exact
+              path="/"
+              render={props => (
+                <React.Fragment>
+                  <div className="todos__container">
+                    <Todos
+                      className="todo__item"
+                      todos={this.state.todos}
+                      markComplete={this.markComplete}
+                      deleteTodo={this.deleteTodo}
+                    />
+                  </div>
+                  <AddTodo addtodo={this.addtodo} />
+                </React.Fragment>
+              )}
+            />
           </div>
         </div>
       </Router>

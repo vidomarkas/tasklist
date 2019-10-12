@@ -1,6 +1,21 @@
 .header {
   background: #000;
-  color: #fff;
+
   text-align: center;
   padding: 10px;
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    display: inline;
+    color: #fff;
+  }
+
+  &__logo {
+    height: 40px;
+  }
 }

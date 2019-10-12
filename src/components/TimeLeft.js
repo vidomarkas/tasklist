@@ -2,6 +2,8 @@ import React from "react";
 
 export default function TimeLeft({ timeLeft }) {
   return (
-    <p className="todoItem__timeLeft">{timeLeft < 0 ? "expired" : timeLeft}</p>
+    <div className="todoItem__status">
+      <p>{timeLeft < 0 ? "expired" : timeLeft}</p>
+    </div>
   );
 }

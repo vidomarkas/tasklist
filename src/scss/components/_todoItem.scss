@@ -1,12 +1,7 @@
 .todoItem {
   display: block;
   position: relative;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 12px;
-
   padding: 10px;
-
   font-size: 22px;
   height: auto;
   min-height: 30px;
@@ -15,7 +10,8 @@
   -ms-user-select: none;
   user-select: none;
 
-  width: 200px;
+  width: 90%;
+  max-width: 1000px;
   height: auto;
   max-height: 400px;
   background-color: #37324d;
@@ -23,8 +19,27 @@
   border-radius: 5px;
   margin: 20px;
 
-  &:hover {
-    transform: scale(1.01);
+  // &:hover {
+  //   transform: scale(1.01);
+  // }
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #000;
+  }
+  &__details {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: flex 0.3s ease-out;
+    flex: 0;
+    &--show {
+      opacity: 1;
+      height: auto;
+      flex: 1;
+      // overflow: hidden;
+    }
   }
   &__dateCreated {
     color: rgb(233, 233, 233);
@@ -34,6 +49,9 @@
   &__title {
     color: #fff;
     font-size: 1.2rem;
+    flex: 1;
+
+    cursor: pointer;
   }
 
   &__body {
@@ -49,14 +67,8 @@
     background-color: #ccc;
   }
 
-  &__timeLeft {
+  &__status {
     border: 1px solid rgb(255, 255, 255);
     background-color: rgb(131, 121, 121);
-  }
-
-  &__controls {
-    position: absolute;
-    top: 5px;
-    right: 5px;
   }
 }

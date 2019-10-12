@@ -5,9 +5,9 @@ export class AddTodo extends Component {
   state = {
     title: "",
     body: "",
-    showForm: false,
     timeCreated: null,
-    deadline: null
+    deadline: null,
+    showForm: false
   };
 
   onChangeTitle = e => {
