@@ -18,31 +18,6 @@ class Calendar extends React.Component {
     );
   };
 
-  // handleChange = selectedDate => {
-  //   const date =
-  //     selectedDate.getFullYear() +
-  //     "-" +
-  //     (selectedDate.getMonth() + 1) +
-  //     "-" +
-  //     selectedDate.getDate();
-
-  //   const time =
-  //     selectedDate.getHours() +
-  //     ":" +
-  //     selectedDate.getMinutes() +
-  //     ":" +
-  //     selectedDate.getSeconds();
-  //   const deadline = date + " " + time;
-  //   this.setState(
-  //     {
-  //       selectedDeadline: deadline
-  //     },
-  //     () => {
-  //       this.props.deadline(this.state.selectedDeadline);
-  //     }
-  //   );
-  // };
-
   render() {
     return (
       <DatePicker
@@ -53,9 +28,16 @@ class Calendar extends React.Component {
         timeFormat="p"
         timeIntervals={15}
         dateFormat="MMMM d, yyyy h:mm aa"
+        customInput={<ExampleCustomInput />}
       />
     );
   }
 }
+
+const ExampleCustomInput = ({ value, onClick }) => (
+  <div className="calendar__custom__input" onClick={onClick}>
+    {value}
+  </div>
+);
 
 export default Calendar;

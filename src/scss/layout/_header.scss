@@ -4,14 +4,21 @@
     width: 100%;
     text-align: center;
     padding: 10px;
-    //addded
+    box-shadow: 0 4px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    @media (max-width: 400px) {
+      position: relative;
+    }
   }
 
   &__box {
     display: flex;
     justify-content: center;
     align-items: center;
-    //added
   }
 
   &__title {
