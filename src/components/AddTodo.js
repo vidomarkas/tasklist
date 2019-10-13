@@ -120,46 +120,58 @@ export class AddTodo extends Component {
           +
         </div>
         <div
-          className="addTodo__dialog"
           style={
             this.state.showForm ? { display: "block" } : { display: "none" }
           }
+          className="addTodo__dialog__background"
         >
-          <form onSubmit={this.onSubmit} action="" ref={this.myRef}>
-            <input
-              type="text"
-              name="title"
-              placeholder="Task title"
-              value={this.state.title}
-              onChange={this.onChangeTitle}
-              maxLength="30"
-            />
-            <input
-              type="text"
-              name="body"
-              placeholder="Task details"
-              value={this.state.body}
-              onChange={this.onChangeBody}
-            />
+          <div
+            className="addTodo__dialog"
+            style={
+              this.state.showForm ? { display: "flex" } : { display: "none" }
+            }
+          >
+            <form
+              onSubmit={this.onSubmit}
+              className="addTodo__dialog__form"
+              action=""
+              ref={this.myRef}
+            >
+              <input
+                type="text"
+                name="title"
+                placeholder="Task title"
+                value={this.state.title}
+                onChange={this.onChangeTitle}
+                maxLength="30"
+              />
+              <input
+                type="text"
+                name="body"
+                placeholder="Task details"
+                value={this.state.body}
+                onChange={this.onChangeBody}
+              />
 
-            <div className="deadline">
-              Deadline:
-              <br />
-              <Calendar deadline={this.selectedDeadline} />
-            </div>
-            <input
-              type="submit"
-              value="Add"
-              className="btn btn-add"
-              style={{ flex: "1" }}
-              onClick={() => {
-                this.createDate();
-              }}
-            />
-            <button className="btn btn-cancel" onClick={this.hideForm}>
-              Cancel
-            </button>
-          </form>
+              <div className="deadline">
+                Deadline:
+                <br />
+                <Calendar deadline={this.selectedDeadline} />
+              </div>
+              <input
+                type="submit"
+                value="Add"
+                className="btn btn-add"
+                style={{ flex: "1" }}
+                onClick={() => {
+                  this.createDate();
+                }}
+              />
+              <button className="btn btn-cancel" onClick={this.hideForm}>
+                Cancel
+              </button>
+            </form>
+          </div>
         </div>
       </>
     );
