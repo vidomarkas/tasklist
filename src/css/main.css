@@ -358,7 +358,7 @@ a {
   @media (max-width: 400px) {
     .addTodo__dialog {
       width: 100%;
-      top: 0%;
+      top: 50%;
       left: 0;
       transform: translate(0, 0); } }
 
