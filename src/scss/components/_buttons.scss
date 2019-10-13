@@ -37,7 +37,7 @@
       fill: #fff;
     }
     &:hover {
-      background: rgba(36, 36, 36, 0.192);
+      background: rgba(214, 214, 214, 0.52);
       color: #fff;
       .btn-complete__svg {
         fill: rgba(5, 204, 38, 0.972);
@@ -49,5 +49,6 @@
     background: #c82333;
   }
   &-add {
+    background: rgba(5, 204, 38, 0.972);
   }
 }

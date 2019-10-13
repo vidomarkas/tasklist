@@ -5,7 +5,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,600&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -316,7 +316,10 @@ body {
 
 .container {
   margin: 0 auto;
-  border: 2px solid #000; }
+  border: 2px solid #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 a {
   color: rgba(189, 18, 189, 0.993);
@@ -324,6 +327,7 @@ a {
 
 .btn-addTodo {
   background-color: #5178f1;
+  box-shadow: 0 8px 14px 0rem #5179f1c5;
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -386,20 +390,38 @@ a {
       padding: 0 3px;
       fill: #fff; }
     .btn-complete:hover {
-      background: rgba(36, 36, 36, 0.192);
+      background: rgba(214, 214, 214, 0.52);
       color: #fff; }
       .btn-complete:hover .btn-complete__svg {
         fill: rgba(5, 204, 38, 0.972); }
   .btn-cancel {
     background: #c82333; }
+  .btn-add {
+    background: rgba(5, 204, 38, 0.972); }
 
 .todos__container {
-  background-color: #d6d6d6;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 15px;
-  min-height: 100vh; }
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1200px; }
+
+.todos__category {
+  width: 90%;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .todos__category__name {
+    margin-bottom: 10px;
+    align-self: flex-start; }
+
+.line-separator {
+  width: 100%;
+  border-bottom: 1px solid #eee; }
 
 .todoItem {
   display: block;
@@ -412,17 +434,22 @@ a {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  width: 90%;
+  width: 100%;
   max-width: 1000px;
   height: auto;
   max-height: 400px;
-  background-color: #37324d;
-  border-radius: 5px;
-  margin: 20px; }
+  border-radius: 15px;
+  margin: 8px 0;
+  color: #76747d;
+  border: 1px solid rgba(246, 246, 246, 0.459);
+  background-color: rgba(246, 246, 246, 0.459); }
+  .todoItem:hover {
+    box-shadow: 0 10px 24px 0rem rgba(228, 228, 228, 0.644);
+    background-color: #e4e4e4;
+    color: #fff; }
   .todoItem__heading {
     display: flex;
-    justify-content: space-between;
-    border: 2px solid #000; }
+    justify-content: space-between; }
   .todoItem__details {
     opacity: 0;
     height: 0;
@@ -434,10 +461,8 @@ a {
       height: auto;
       flex: 1; }
   .todoItem__dateCreated {
-    color: #e9e9e9;
     font-size: 0.6rem; }
   .todoItem__title {
-    color: #fff;
     font-size: 1.2rem;
     flex: 1;
     cursor: pointer; }
@@ -445,17 +470,23 @@ a {
     border: 1px solid rgba(0, 0, 0, 0.13);
     border-radius: 5px;
     min-height: 150px;
-    font-size: 0.9rem;
-    color: #fff; }
+    font-size: 0.9rem; }
   .todoItem__deadline {
     border: 1px solid red;
     background-color: #ccc; }
   .todoItem__status {
-    border: 1px solid white;
-    background-color: #837979; }
+    border-radius: 12px;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 600;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
 
 .header {
   background: #000;
+  width: 100%;
   text-align: center;
   padding: 10px; }
   .header__wrapper {

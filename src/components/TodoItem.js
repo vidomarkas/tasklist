@@ -7,15 +7,15 @@ import Status from "./Status";
 export class TodoItem extends Component {
   state = { timeLeft: null, expired: false, expanded: false };
 
-  getStyle = () => {
-    if (this.state.expired && !this.props.todo.completed) {
-      return { backgroundColor: "#f0134d" };
-    } else if (this.props.todo.completed) {
-      return { backgroundColor: "#2ECC71" };
-    } else {
-      return { backgroundColor: "#37324d" };
-    }
-  };
+  // getStyle = () => {
+  //   if (this.state.expired && !this.props.todo.completed) {
+  //     return { backgroundColor: "#f0134d" };
+  //   } else if (this.props.todo.completed) {
+  //     return { backgroundColor: "#2ECC71" };
+  //   } else {
+  //     return { backgroundColor: "#37324d" };
+  //   }
+  // };
 
   // Calculate how much time left until the deadline
   calcTimeLeft = deadline => {
@@ -106,7 +106,7 @@ export class TodoItem extends Component {
   checkIfExpired = () => {
     if (this.state.timeLeft < 0) {
       this.setState({ expired: true }, () => {
-        this.getStyle();
+        // this.getStyle();
         clearInterval(this.myInterval);
       });
     }
@@ -127,7 +127,10 @@ export class TodoItem extends Component {
     const { id, title, body, timeCreated, deadline } = this.props.todo;
 
     return (
-      <div className="todoItem" style={this.getStyle()}>
+      <div
+        className="todoItem"
+        //  style={this.getStyle()}
+      >
         <div className="todoItem__heading">
           <div
             className="btn btn-complete"
