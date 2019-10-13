@@ -352,10 +352,15 @@ a {
   background-color: #fff;
   height: 300px;
   width: 90%;
-  max-width: 400px; }
+  max-width: 400px;
+  border: 3px solid blue;
+  border-radius: 15px; }
   @media (max-width: 400px) {
     .addTodo__dialog {
-      width: 100%; } }
+      width: 100%;
+      top: 0%;
+      left: 0;
+      transform: translate(0, 0); } }
 
 .btn {
   display: inline-block;
