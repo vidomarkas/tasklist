@@ -1,13 +1,17 @@
 .header {
-  background: #000;
-  width: 100%;
-  text-align: center;
-  padding: 10px;
+  &__container {
+    background: #000;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    //addded
+  }
 
-  &__wrapper {
+  &__box {
     display: flex;
     justify-content: center;
     align-items: center;
+    //added
   }
 
   &__title {

@@ -128,8 +128,9 @@ export class TodoItem extends Component {
 
     return (
       <div
-        className="todoItem"
-        //  style={this.getStyle()}
+        className={
+          this.state.expanded ? "todoItem todoItem__expanded" : "todoItem"
+        }
       >
         <div className="todoItem__heading">
           <div
@@ -185,7 +186,10 @@ export class TodoItem extends Component {
         >
           <p className="todoItem__dateCreated">{timeCreated}</p>
 
-          <TimeLeft timeLeft={this.state.timeLeft} />
+          <TimeLeft
+            timeLeft={this.state.timeLeft}
+            completed={this.props.todo.completed}
+          />
           <p className="todoItem__body">{body}</p>
           {/* <p>{this.props.convertDateFromISO(deadline)}</p> */}
           <p className="todoItem__deadline">deadline {deadline}</p>

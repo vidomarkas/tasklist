@@ -121,7 +121,7 @@ export class AddTodo extends Component {
           <input
             type="text"
             name="title"
-            placeholder="Title"
+            placeholder="Task title"
             value={this.state.title}
             onChange={this.onChangeTitle}
             maxLength="30"
@@ -129,7 +129,7 @@ export class AddTodo extends Component {
           <input
             type="text"
             name="body"
-            placeholder="Add todo ..."
+            placeholder="Task details"
             value={this.state.body}
             onChange={this.onChangeBody}
           />

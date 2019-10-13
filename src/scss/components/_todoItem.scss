@@ -14,19 +14,29 @@
   max-width: 1000px;
   height: auto;
   max-height: 400px;
-
+  // color: rgb(125, 173, 224);
   border-radius: 15px;
   margin: 8px 0;
   color: #76747d;
-  border: 1px solid rgba(246, 246, 246, 0.459);
-  background-color: rgba(246, 246, 246, 0.459);
+  // border: 1px solid rgba(246, 246, 246, 0.459);
+  background-color: rgba(246, 246, 246, 0.301);
 
   &:hover {
     box-shadow: 0 10px 24px 0rem rgba(228, 228, 228, 0.644);
-    background-color: rgb(228, 228, 228);
-    color: #fff;
+    background-color: rgb(238, 238, 238);
+    color: #000;
   }
+  &__expanded {
+    border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(238, 238, 238);
+    color: #000;
+    &:hover {
+      box-shadow: none;
 
+      background-color: rgb(238, 238, 238);
+      color: #000;
+    }
+  }
   &__heading {
     display: flex;
     justify-content: space-between;
@@ -36,13 +46,12 @@
     opacity: 0;
     height: 0;
     overflow: hidden;
-    transition: flex 0.3s ease-out;
+
     flex: 0;
     &--show {
       opacity: 1;
       height: auto;
       flex: 1;
-      // overflow: hidden;
     }
   }
   &__dateCreated {
@@ -52,7 +61,7 @@
   &__title {
     font-size: 1.2rem;
     flex: 1;
-
+    line-height: 2rem;
     cursor: pointer;
   }
 

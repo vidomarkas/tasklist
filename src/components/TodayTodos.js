@@ -12,7 +12,7 @@ export default function TodayTodos({
     const deadlineMiliseconds = date.getTime() / 1000;
 
     if (
-      (deadlineMiliseconds - currentTimeMiliseconds) / 86400 > 0 &&
+      (deadlineMiliseconds - currentTimeMiliseconds) / 86400 > -1 &&
       (deadlineMiliseconds - currentTimeMiliseconds) / 86400 <= 1
     ) {
       return (

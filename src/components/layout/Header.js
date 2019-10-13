@@ -4,10 +4,10 @@ import logo from "../../assets/logo.png";
 
 function Header() {
   return (
-    <header className="header">
-      <div className="header__wrapper">
+    <header className="header__container">
+      <div className="header__box">
         <img className="header__logo" src={logo} alt="" />
-        <h1 className="header__title">TodoList</h1>
+        <h1 className="header__title">TaskList</h1>
       </div>
     </header>
   );

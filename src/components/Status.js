@@ -7,7 +7,7 @@ export default function Status({ status }) {
     } else if (completed) {
       return { backgroundColor: "#E0F5F5", color: "#58ACAB" };
     } else {
-      return { backgroundColor: "#E4EFFE", color: "#9DCBFF" };
+      return { backgroundColor: "#E4EFFE", color: "rgb(125, 173, 224)" };
     }
   };
   const { expired, completed } = status;
