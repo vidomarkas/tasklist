@@ -20,7 +20,7 @@ export class AddTodo extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    if (this.state.title && this.state.body) {
+    if (this.state.title) {
       this.props.addtodo(
         this.state.title,
         this.state.body,
@@ -30,7 +30,6 @@ export class AddTodo extends Component {
       );
       this.hideForm();
     }
-    this.setState({ title: "", body: "" });
   };
 
   //convert date and show deadline
@@ -67,7 +66,7 @@ export class AddTodo extends Component {
   };
 
   hideForm = () => {
-    this.setState({ showForm: false }, () => {});
+    this.setState({ showForm: false, title: "", body: "" });
   };
 
   selectedDeadline = deadline => {
@@ -171,7 +170,7 @@ export class AddTodo extends Component {
               </svg>
             </div> */}
 
-            <h2>Add new Task</h2>
+            <h2 className="addTodo__dialog__heading">Add new Task</h2>
             <form
               onSubmit={this.onSubmit}
               className="addTodo__dialog__form"
@@ -186,6 +185,7 @@ export class AddTodo extends Component {
                 value={this.state.title}
                 onChange={this.onChangeTitle}
                 maxLength="30"
+                required
               />
               <textarea
                 className="addTodo__dialog__field addTodo__dialog__field--details"
@@ -201,18 +201,19 @@ export class AddTodo extends Component {
                 <br />
                 <Calendar deadline={this.selectedDeadline} />
               </div>
-              <input
-                type="submit"
-                value="Add"
-                className="btn btn-add"
-                style={{ flex: "1" }}
-                onClick={() => {
-                  this.createDate();
-                }}
-              />
-              <button className="btn btn-cancel" onClick={this.hideForm}>
-                Cancel
-              </button>
+              <div className="addTodo__dialog__controls">
+                <input
+                  type="submit"
+                  value="Add"
+                  className="btn btn-add"
+                  onClick={() => {
+                    this.createDate();
+                  }}
+                />
+                <button className="btn btn-cancel" onClick={this.hideForm}>
+                  Cancel
+                </button>
+              </div>
             </form>
           </div>
         </div>

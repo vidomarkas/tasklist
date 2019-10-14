@@ -11,7 +11,8 @@ import "./css/main.css";
 
 class App extends Component {
   state = {
-    todos: []
+    todos: [],
+    sortedTodos: []
   };
 
   markComplete = id => {
@@ -19,7 +20,6 @@ class App extends Component {
       todos: this.state.todos.map(todo => {
         if (todo.id === id) {
           todo.completed = !todo.completed;
-          console.log(this.state);
         }
         return todo;
       })
@@ -31,6 +31,61 @@ class App extends Component {
       todos: [...this.state.todos.filter(todo => todo.id !== id)]
     });
   };
+  // //Receives todo.unformattedDeadline(ISO)
+  // convertISODateToMiliseconds = date => {
+  //   const formattedDate = new Date(date);
+  //   return formattedDate.getTime();
+  // };
+
+  // sortNumber = (a, b) => {
+  //   return a - b;
+  // };
+
+  // calcTodoDeadlineSeconds = () => {
+  //   this.setState({
+  //     todos: this.state.todos.map(todo => {
+  //       todo.deadlineSeconds = this.convertISODateToMiliseconds(
+  //         todo.unformattedDeadline
+  //       );
+  //       return todo;
+  //     })
+  //   });
+  // };
+
+  // getDeadlinesMiliseconds = (id, deadline) => {
+  //   console.log(deadline);
+  //   this.setState(
+  //     {
+  //       todos: this.state.todos.map(todo => {
+  //         if (todo.id === id) {
+  //           todo.deadlineSeconds = deadline;
+  //         }
+  //         console.log(todo);
+
+  //         return todo;
+  //       })
+  //     },
+  //     () => {
+  //       console.log(this.state);
+  //     }
+  //   );
+  // };
+
+  // sortTodosByDeadline = () => {
+  //   if (this.state.todos) {
+  //     this.getDeadlinesMiliseconds();
+  //     this.setState(
+  //       {
+  //         todos: this.state.todos.sort((a, b) =>
+  //           a.deadlineSeconds > b.deadlineSeconds ? 1 : -1
+  //         )
+  //       },
+  //       () => {
+  //         console.log(this.state.todos);
+  //       }
+  //     );
+  //   }
+  // };
 
   addtodo = (title, body, timeCreated, deadline, unformattedDeadline) => {
     const newTodo = {
@@ -65,7 +120,10 @@ class App extends Component {
     if (!todosFromLocalStorage) {
       this.setState({ todos: [] });
     } else {
-      this.setState({ todos: [...todosFromLocalStorage] }, () => {});
+      this.setState(
+        { todos: [...todosFromLocalStorage] }
+        //  , () => { this.sortTodosByDeadline(); }
+      );
     }
   }
 
@@ -91,6 +149,7 @@ class App extends Component {
                       todos={this.state.todos}
                       markComplete={this.markComplete}
                       deleteTodo={this.deleteTodo}
+                      getDeadlinesMiliseconds={this.getDeadlinesMiliseconds}
                     />
                   </div>
                   <AddTodo addtodo={this.addtodo} />

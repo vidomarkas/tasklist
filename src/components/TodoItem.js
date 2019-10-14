@@ -44,6 +44,11 @@ export class TodoItem extends Component {
     const date = new Date(formatDateFromISO(deadline));
     const deadlineMiliseconds = date.getTime();
 
+    // this.props.getDeadlinesMiliseconds.bind(
+    //   this,
+    //   this.props.todo.id,
+    //   deadlineMiliseconds
+    // );
     // Find difference
 
     let differenceMsec = deadlineMiliseconds - now;

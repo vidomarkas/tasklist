@@ -35,6 +35,7 @@ export class Todos extends Component {
             // key={this.props.todos.id}
             markComplete={this.props.markComplete}
             deleteTodo={this.props.deleteTodo}
+            getDeadlinesMiliseconds={this.props.getDeadlinesMiliseconds}
           />
         </div>
         <div className="todos__category">
@@ -47,6 +48,7 @@ export class Todos extends Component {
             // key={this.props.todo.id}
             markComplete={this.props.markComplete}
             deleteTodo={this.props.deleteTodo}
+            getDeadlinesMiliseconds={this.props.getDeadlinesMiliseconds}
           />
         </div>
         <div className="todos__category">
@@ -59,6 +61,7 @@ export class Todos extends Component {
             // key={this.props.todo.id}
             markComplete={this.props.markComplete}
             deleteTodo={this.props.deleteTodo}
+            getDeadlinesMiliseconds={this.props.getDeadlinesMiliseconds}
           />
         </div>
       </>

@@ -12,7 +12,6 @@ export default function Status({ status }) {
   };
   const { expired, completed } = status;
   const obtainStatus = (expired, completed) => {
-    console.log(expired, completed);
     if (completed) {
       return "Completed";
     } else if (expired) {

@@ -28,13 +28,13 @@ class Calendar extends React.Component {
         timeFormat="p"
         timeIntervals={15}
         dateFormat="MMMM d, yyyy h:mm aa"
-        customInput={<ExampleCustomInput />}
+        customInput={<CustomInput />}
       />
     );
   }
 }
 
-const ExampleCustomInput = ({ value, onClick }) => (
+const CustomInput = ({ value, onClick }) => (
   <div className="calendar__custom__input" onClick={onClick}>
     {value}
   </div>

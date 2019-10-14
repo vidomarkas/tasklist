@@ -5,7 +5,8 @@ export default function ExpiredTodos({
   todos,
   currentTimeMiliseconds,
   markComplete,
-  deleteTodo
+  deleteTodo,
+  getDeadlinesMiliseconds
 }) {
   return todos.map(todo => {
     const date = new Date(todo.unformattedDeadline);
@@ -18,6 +19,7 @@ export default function ExpiredTodos({
             key={todo.id}
             markComplete={markComplete}
             deleteTodo={deleteTodo}
+            // getDeadlinesMiliseconds={getDeadlinesMiliseconds}
           />
         </>
       );

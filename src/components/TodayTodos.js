@@ -5,7 +5,8 @@ export default function TodayTodos({
   todos,
   currentTimeMiliseconds,
   markComplete,
-  deleteTodo
+  deleteTodo,
+  getDeadlinesMiliseconds
 }) {
   return todos.map(todo => {
     const date = new Date(todo.unformattedDeadline);
@@ -22,6 +23,7 @@ export default function TodayTodos({
             key={todo.id}
             markComplete={markComplete}
             deleteTodo={deleteTodo}
+            // getDeadlinesMiliseconds={getDeadlinesMiliseconds}
           />
         </>
       );
