@@ -37,14 +37,14 @@
       height: 22px;
       width: 22px;
       padding: 0 3px;
-      fill: #fff;
+
+      fill: #000;
     }
     &:hover {
       background: rgba(214, 214, 214, 0.52);
       color: #fff;
       .btn-complete__svg {
-        // fill: rgba(5, 204, 38, 0.972);
-        fill: #000;
+        fill: rgba(5, 204, 38, 0.972);
       }
     }
   }

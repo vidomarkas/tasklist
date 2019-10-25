@@ -29,6 +29,12 @@
     &__name {
       margin-bottom: 10px;
       align-self: flex-start;
+      cursor: pointer;
+      user-select: none;
+      &__rotatedSVG {
+        transform: rotate(180deg);
+        line-height: 5px;
+      }
     }
   }
 }
