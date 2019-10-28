@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -23,7 +23,6 @@ class Calendar extends React.Component {
       <DatePicker
         selected={this.state.selectedDeadline}
         onChange={this.handleChange}
-        // minDate={new Date()}
         showTimeSelect
         timeFormat="p"
         timeIntervals={15}
@@ -34,10 +33,15 @@ class Calendar extends React.Component {
   }
 }
 
-const CustomInput = ({ value, onClick }) => (
-  <div className="calendar__custom__input" onClick={onClick}>
-    {value}
-  </div>
-);
+class CustomInput extends Component {
+  render() {
+    const { value, onClick } = this.props;
+    return (
+      <div className="calendar__custom__input" onClick={onClick}>
+        {value}
+      </div>
+    );
+  }
+}
 
 export default Calendar;

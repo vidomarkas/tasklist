@@ -29,10 +29,7 @@ export class Todos extends Component {
             {this.state.previousExpanded ? (
               <h2>
                 Previous
-                <span
-
-                // style={{ transform: "rotate(180deg);" }}
-                >
+                <span>
                   <svg
                     className="todos__category__name__rotatedSVG"
                     focusable="false"
