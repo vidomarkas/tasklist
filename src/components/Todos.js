@@ -68,7 +68,7 @@ export class Todos extends Component {
             previousExpanded={this.state.previousExpanded}
             currentTimeMiliseconds={currentTimeMiliseconds}
             todos={this.props.todos}
-            // key={this.props.todos.id}
+            //key={this.props.todos.id}
             markComplete={this.props.markComplete}
             deleteTodo={this.props.deleteTodo}
             //getDeadlinesMiliseconds={this.props.getDeadlinesMiliseconds}
@@ -120,7 +120,7 @@ export class Todos extends Component {
             todayExpanded={this.state.todayExpanded}
             currentTimeMiliseconds={currentTimeMiliseconds}
             todos={this.props.todos}
-            // key={this.props.todo.id}
+            //key={this.props.todos.id}
             markComplete={this.props.markComplete}
             deleteTodo={this.props.deleteTodo}
             getDeadlinesMiliseconds={this.props.getDeadlinesMiliseconds}
@@ -172,7 +172,7 @@ export class Todos extends Component {
             upcomingExpanded={this.state.upcomingExpanded}
             currentTimeMiliseconds={currentTimeMiliseconds}
             todos={this.props.todos}
-            // key={this.props.todo.id}
+            key={this.props.todos.id}
             markComplete={this.props.markComplete}
             deleteTodo={this.props.deleteTodo}
             getDeadlinesMiliseconds={this.props.getDeadlinesMiliseconds}

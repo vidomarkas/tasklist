@@ -18,22 +18,27 @@
   border-radius: 15px;
   margin: 8px 0;
   color: #76747d;
-  // border: 1px solid rgba(246, 246, 246, 0.459);
+  transition: all 0.1s ease-in-out;
   background-color: rgba(246, 246, 246, 0.301);
+  @media (max-width: 400px) {
+    padding: 5px;
+  }
 
   &:hover {
-    box-shadow: 0 10px 24px 0rem rgba(228, 228, 228, 0.644);
     background-color: rgb(238, 238, 238);
     color: #000;
+    transform: scale(1.01);
   }
   &__expanded {
-    border: 2px solid rgb(0, 0, 0);
-    background-color: rgb(238, 238, 238);
+    //border: 2px solid rgb(0, 0, 0);
+    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba(246, 246, 246, 0.301);
     color: #000;
     &:hover {
       box-shadow: none;
+      box-shadow: 0 4px 8px 0 rgba(134, 134, 134, 0.2);
 
-      background-color: rgb(238, 238, 238);
+      background-color: rgba(246, 246, 246, 0.301);
       color: #000;
     }
   }
@@ -46,6 +51,7 @@
     opacity: 0;
     height: 0;
     overflow: hidden;
+    display: flex;
 
     flex: 0;
     &--show {
@@ -62,14 +68,59 @@
     font-size: 1.2rem;
     flex: 1;
     line-height: 2rem;
+    font-weight: 500;
+    color: #2a3940;
     cursor: pointer;
+    @media (max-width: 400px) {
+      font-size: 12px;
+    }
   }
 
   &__body {
-    border: 1px solid rgba(0, 0, 0, 0.13);
+    border: 1px solid rgba(206, 206, 206, 0.37);
     border-radius: 5px;
     min-height: 150px;
     font-size: 0.9rem;
+    width: 70%;
+    padding: 10px;
+    background-color: #fff;
+    word-wrap: break-word;
+    &__noDetails {
+      text-align: center;
+      // line-height: 150px;
+      //display: flex;
+      &--text {
+        font-size: 30px;
+        font-weight: 600;
+        color: #eee;
+      }
+      &--svg {
+        padding-top: 5px;
+      }
+    }
+  }
+
+  &__sidemenu {
+    margin: 0 auto;
+    &__text {
+      &--primary {
+        color: #2a3940;
+        font-size: 16px;
+        font-weight: 600;
+        @media (max-width: 400px) {
+          font-size: 11px;
+        }
+      }
+      &--secondary {
+        color: rgb(172, 172, 172);
+        font-size: 10px;
+        font-weight: 500;
+      }
+    }
+
+    &__section {
+      padding: 5px;
+    }
   }
 
   &__deadline {
@@ -78,8 +129,6 @@
   }
 
   &__status {
-    // border: 1px solid rgb(255, 255, 255);
-    // background-color: rgb(131, 121, 121);
     border-radius: 12px;
     font-size: 12px;
     line-height: 12px;
@@ -88,5 +137,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 33px;
+    @media (max-width: 400px) {
+      font-size: 12px;
+    }
   }
 }

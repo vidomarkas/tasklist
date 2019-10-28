@@ -8,7 +8,7 @@ class TodayTodos extends Component {
       currentTimeMiliseconds,
       markComplete,
       deleteTodo,
-      getDeadlinesMiliseconds,
+      //getDeadlinesMiliseconds,
       todayExpanded
     } = this.props;
     if (todayExpanded) {

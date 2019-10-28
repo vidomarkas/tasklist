@@ -327,7 +327,7 @@ a {
 
 .btn-addTodo {
   background-color: #5178f1;
-  box-shadow: 0 8px 14px 0rem #5179f1c5;
+  box-shadow: 0 1px 2px #5179f186;
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -340,7 +340,11 @@ a {
   line-height: 50px;
   font-size: 30px;
   z-index: 5001;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: all 0.1s ease-in-out; }
+  .btn-addTodo:hover {
+    transform: scale(1.04);
+    box-shadow: 0 5px 15px #5179f1cc; }
 
 .addTodo__dialog {
   display: none;
@@ -428,7 +432,7 @@ a {
     color: #c03535;
     border: 1px solid #c03535; }
     .btn-delete:hover {
-      background: rgba(36, 36, 36, 0.192);
+      background: #c03535;
       color: #fff; }
   .btn-complete {
     background: none;
@@ -518,18 +522,22 @@ a {
   border-radius: 15px;
   margin: 8px 0;
   color: #76747d;
+  transition: all 0.1s ease-in-out;
   background-color: rgba(246, 246, 246, 0.301); }
+  @media (max-width: 400px) {
+    .todoItem {
+      padding: 5px; } }
   .todoItem:hover {
-    box-shadow: 0 10px 24px 0rem rgba(228, 228, 228, 0.644);
     background-color: #eeeeee;
-    color: #000; }
+    color: #000;
+    transform: scale(1.01); }
   .todoItem__expanded {
-    border: 2px solid black;
-    background-color: #eeeeee;
+    background-color: rgba(246, 246, 246, 0.301);
     color: #000; }
     .todoItem__expanded:hover {
       box-shadow: none;
-      background-color: #eeeeee;
+      box-shadow: 0 4px 8px 0 rgba(134, 134, 134, 0.2);
+      background-color: rgba(246, 246, 246, 0.301);
       color: #000; }
   .todoItem__heading {
     display: flex;
@@ -538,6 +546,7 @@ a {
     opacity: 0;
     height: 0;
     overflow: hidden;
+    display: flex;
     flex: 0; }
     .todoItem__details--show {
       opacity: 1;
@@ -549,12 +558,44 @@ a {
     font-size: 1.2rem;
     flex: 1;
     line-height: 2rem;
+    font-weight: 500;
+    color: #2a3940;
     cursor: pointer; }
+    @media (max-width: 400px) {
+      .todoItem__title {
+        font-size: 12px; } }
   .todoItem__body {
-    border: 1px solid rgba(0, 0, 0, 0.13);
+    border: 1px solid rgba(206, 206, 206, 0.37);
     border-radius: 5px;
     min-height: 150px;
-    font-size: 0.9rem; }
+    font-size: 0.9rem;
+    width: 70%;
+    padding: 10px;
+    background-color: #fff;
+    word-wrap: break-word; }
+    .todoItem__body__noDetails {
+      text-align: center; }
+      .todoItem__body__noDetails--text {
+        font-size: 30px;
+        font-weight: 600;
+        color: #eee; }
+      .todoItem__body__noDetails--svg {
+        padding-top: 5px; }
+  .todoItem__sidemenu {
+    margin: 0 auto; }
+    .todoItem__sidemenu__text--primary {
+      color: #2a3940;
+      font-size: 16px;
+      font-weight: 600; }
+      @media (max-width: 400px) {
+        .todoItem__sidemenu__text--primary {
+          font-size: 11px; } }
+    .todoItem__sidemenu__text--secondary {
+      color: #acacac;
+      font-size: 10px;
+      font-weight: 500; }
+    .todoItem__sidemenu__section {
+      padding: 5px; }
   .todoItem__deadline {
     border: 1px solid red;
     background-color: #ccc; }
@@ -566,7 +607,11 @@ a {
     width: 120px;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    height: 33px; }
+    @media (max-width: 400px) {
+      .todoItem__status {
+        font-size: 12px; } }
 
 .calendar__custom__input {
   border: none;
@@ -606,6 +651,19 @@ a {
 
 .header__logo {
   height: 40px; }
+
+.footer {
+  background-color: #000;
+  color: #8b8b8b;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 10px; }
+  .footer__link {
+    color: #5178f1; }
+    .footer__link:hover {
+      color: #3f30ca; }
 
 .todosCategories {
   display: flex;
