@@ -312,7 +312,8 @@ template {
 body {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   line-height: 1.4;
-  position: relative; }
+  position: relative;
+  background-color: red; }
 
 .container {
   margin: 0 auto;
