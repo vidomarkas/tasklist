@@ -32,13 +32,6 @@ class App extends Component {
     });
   };
 
-  //todo Sort todos by deadline
-
-  // sortTodosbyDeadline = ()=> {
-
-  // }
-  //todo Add example todos for first time users
-
   addtodo = (title, body, timeCreated, deadline, unformattedDeadline) => {
     const newTodo = {
       id: uuid.v4(),

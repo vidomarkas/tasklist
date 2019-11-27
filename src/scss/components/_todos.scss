@@ -8,7 +8,6 @@
     min-height: 100vh;
     width: 100%;
     max-width: 1200px;
-    // align-self: center;
     margin-top: 150px;
     @media (max-width: 400px) {
       margin-top: 20px;
@@ -16,7 +15,6 @@
   }
 
   &__category {
-    // border: 1px solid rgb(149, 149, 149);
     width: 90%;
     margin-bottom: 80px;
     display: flex;

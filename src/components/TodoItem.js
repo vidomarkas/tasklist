@@ -10,16 +10,6 @@ import IconManSearching from "./IconManSearching";
 export class TodoItem extends Component {
   state = { timeLeft: null, expired: false, expanded: false };
 
-  // getStyle = () => {
-  //   if (this.state.expired && !this.props.todo.completed) {
-  //     return { backgroundColor: "#f0134d" };
-  //   } else if (this.props.todo.completed) {
-  //     return { backgroundColor: "#2ECC71" };
-  //   } else {
-  //     return { backgroundColor: "#37324d" };
-  //   }
-  // };
-
   // Calculate how much time left until the deadline
   calcTimeLeft = deadline => {
     const formatDateFromISO = deadline => {
@@ -43,15 +33,11 @@ export class TodoItem extends Component {
 
     // Current date in miliseconds
     const now = Date.now();
-    // COnvert deadline to miliseconds
+    // Convert deadline to miliseconds
     const date = new Date(formatDateFromISO(deadline));
     const deadlineMiliseconds = date.getTime();
 
-    // this.props.getDeadlinesMiliseconds.bind(
-    //   this,
-    //   this.props.todo.id,
-    //   deadlineMiliseconds
-    // );
+    
     // Find difference
 
     let differenceMsec = deadlineMiliseconds - now;
@@ -207,7 +193,7 @@ export class TodoItem extends Component {
             </div>
           </div>
 
-          {/* <p>{this.props.convertDateFromISO(deadline)}</p> */}
+        
         </div>
       </div>
     );

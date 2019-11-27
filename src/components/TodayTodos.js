@@ -8,11 +8,10 @@ class TodayTodos extends Component {
       currentTimeMiliseconds,
       markComplete,
       deleteTodo,
-      //getDeadlinesMiliseconds,
       todayExpanded
     } = this.props;
     if (todayExpanded) {
-      return todos.map(todo => {
+      return todos.map((todo, index) => {
         const date = new Date(todo.unformattedDeadline);
         const deadlineMiliseconds = date.getTime() / 1000;
         if (
@@ -23,10 +22,9 @@ class TodayTodos extends Component {
             <>
               <TodoItem
                 todo={todo}
-                key={todo.id}
+                key={index}
                 markComplete={markComplete}
                 deleteTodo={deleteTodo}
-                // getDeadlinesMiliseconds={getDeadlinesMiliseconds}
               />
             </>
           );

@@ -94,12 +94,6 @@ export class AddTodo extends Component {
         minimumIntegerDigits: 2,
         useGrouping: false
       });
-    // +
-    // ":" +
-    // today.getSeconds().toLocaleString("en-US", {
-    //   minimumIntegerDigits: 2,
-    //   useGrouping: false
-    // });
     this.setState({ timeCreated: date + " " + time });
   };
   componentDidMount() {

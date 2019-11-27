@@ -65,10 +65,9 @@ export class Todos extends Component {
             previousExpanded={this.state.previousExpanded}
             currentTimeMiliseconds={currentTimeMiliseconds}
             todos={this.props.todos}
-            //key={this.props.todos.id}
+            key={this.props.todos.id}
             markComplete={this.props.markComplete}
             deleteTodo={this.props.deleteTodo}
-            //getDeadlinesMiliseconds={this.props.getDeadlinesMiliseconds}
           />
         </div>
         <div className="todos__category">
@@ -117,7 +116,7 @@ export class Todos extends Component {
             todayExpanded={this.state.todayExpanded}
             currentTimeMiliseconds={currentTimeMiliseconds}
             todos={this.props.todos}
-            //key={this.props.todos.id}
+            key={this.props.todos.id}
             markComplete={this.props.markComplete}
             deleteTodo={this.props.deleteTodo}
             getDeadlinesMiliseconds={this.props.getDeadlinesMiliseconds}
@@ -179,35 +178,6 @@ export class Todos extends Component {
     );
   }
 }
-
-//     return this.props.todos.map(todo => {
-//       const date = new Date(todo.unformattedDeadline);
-//       const deadlineMiliseconds = date.getTime() / 1000;
-
-//       if (
-//         (deadlineMiliseconds - currentTimeMiliseconds) / 86400 > 0 &&
-//         (deadlineMiliseconds - currentTimeMiliseconds) / 86400 <= 1
-//       ) {
-//         return (
-//           <div>
-//             <h2>Today</h2>
-//             <TodoItem
-//               todo={todo}
-//               key={todo.id}
-//               markComplete={this.props.markComplete}
-//               deleteTodo={this.props.deleteTodo}
-//             />
-//           </div>
-//         );
-//       }
-//       } else {
-//         return (
-
-//         );
-//       }
-//     });
-//   }
-// }
 
 Todos.propTypes = {
   todos: PropTypes.array.isRequired

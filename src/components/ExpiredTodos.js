@@ -22,7 +22,6 @@ class ExpiredTodos extends Component {
               key={todo.id}
               markComplete={markComplete}
               deleteTodo={deleteTodo}
-              // getDeadlinesMiliseconds={getDeadlinesMiliseconds}
             />
           );
         } else {

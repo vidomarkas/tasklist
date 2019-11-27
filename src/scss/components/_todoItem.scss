@@ -14,7 +14,6 @@
   max-width: 1000px;
   height: auto;
   max-height: 400px;
-  // color: rgb(125, 173, 224);
   border-radius: 15px;
   margin: 8px 0;
   color: #76747d;
@@ -30,8 +29,6 @@
     transform: scale(1.01);
   }
   &__expanded {
-    //border: 2px solid rgb(0, 0, 0);
-    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: rgba(246, 246, 246, 0.301);
     color: #000;
     &:hover {
@@ -45,7 +42,6 @@
   &__heading {
     display: flex;
     justify-content: space-between;
-    // border: 2px solid #000;
   }
   &__details {
     opacity: 0;
@@ -87,8 +83,6 @@
     word-wrap: break-word;
     &__noDetails {
       text-align: center;
-      // line-height: 150px;
-      //display: flex;
       &--text {
         font-size: 30px;
         font-weight: 600;

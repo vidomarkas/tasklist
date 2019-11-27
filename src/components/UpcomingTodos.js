@@ -12,7 +12,7 @@ class UpcomingTodos extends Component {
     } = this.props;
 
     if (upcomingExpanded) {
-      return todos.map(todo => {
+      return todos.map((todo, index) => {
         const date = new Date(todo.unformattedDeadline);
         const deadlineMiliseconds = date.getTime() / 1000;
         if ((deadlineMiliseconds - currentTimeMiliseconds) / 86400 > 1) {
@@ -20,10 +20,9 @@ class UpcomingTodos extends Component {
             <>
               <TodoItem
                 todo={todo}
-                key={todo.id}
+                key={index}
                 markComplete={markComplete}
                 deleteTodo={deleteTodo}
-                // getDeadlinesMiliseconds={getDeadlinesMiliseconds}
               />
             </>
           );

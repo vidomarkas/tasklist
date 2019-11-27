@@ -12,7 +12,7 @@
     "uuid": "^3.3.3"
   },
   "scripts": {
-    "scss": "node-sass --watch src/scss/main.scss -o src/css",
+    "sass": "node-sass --watch src/scss/main.scss -o src/css",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
