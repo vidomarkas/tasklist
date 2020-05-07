@@ -1,6 +1,15 @@
 # React TaskList Application with local storage
 ##### https://tasklist-vidomarkas.netlify.com/
 
+## What is done
+
+• Implemented ability to add deadline and details to each of the tasks.
+• Categorised tasks depending on their deadline date.
+• Preserved user data using Local Storage.
+• Implemented React Datepicker for selecting deadline from calendar.
+
+
+
 ## How to use
 
 In the project directory, run:
